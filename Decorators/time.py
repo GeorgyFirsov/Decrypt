@@ -16,4 +16,5 @@ def benchmark(entire):
         print("Time elapsed: {} msec ({} sec)".format(diff.microseconds, diff.seconds))
 
         return result
+
     return wrapper
