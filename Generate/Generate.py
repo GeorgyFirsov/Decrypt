@@ -1,7 +1,9 @@
 # This file contains a function, that
 # extracts all valid words from file
+from Decorators import time
 
 
+@time.benchmark
 def generate_dataset(words_list):
     """This function reads all the words
     from file and puts them into a set.
@@ -13,12 +15,12 @@ def generate_dataset(words_list):
     :return: set with all words from file
     """
 
-    with open(words_list, 'r') as file:
-        result = set()
+    result = set()
 
+    with open(words_list, 'r', encoding='utf-8') as file:
         for line in file:
             # Filter most of abbreviations
-            if not '-' in line and not '.' in line:
-                result.add(line.translate(None, '\n\t\r')
-
+            if '-' not in line and '.' not in line:
+                result.add(line.replace('\n', ''))
+    
     return result
