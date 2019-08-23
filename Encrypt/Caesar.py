@@ -4,7 +4,6 @@ from Decorators import time
 
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
-max_len = len(alphabet) - 1
 
 
 @time.benchmark
@@ -22,25 +21,21 @@ def encrypt(words, shift):
              and encrypted words as values
     """
 
-    if not 1 <= shift <= max_len:
+    if not 1 <= shift <= len(alphabet) - 1:
         raise RuntimeError
 
-    shifted_alphabet = alphabet[shift:] + alphabet[:shift]
-
-    result = dict()
-    for word in words:
-        result[word] = encrypt_word(word, shifted_alphabet)
-
-    return result
+    encrypted_alphabet = alphabet[shift:] + alphabet[:shift]
+    return {word: encrypt_word(word, encrypted_alphabet) for word in words}
 
 
-def encrypt_word(word, shifted_alphabet):
+def encrypt_word(word, encrypted_alphabet):
     """Encrypts single word with Caesar cipher.
 
     :param word: word to encrypt
-    :param shifted_alphabet: encrypted alphabet
+    :param encrypted_alphabet: encrypted alphabet
 
     :return: encrypted word
     """
-    table = str.maketrans(alphabet, shifted_alphabet)
+
+    table = str.maketrans(alphabet, encrypted_alphabet)
     return word.translate(table)

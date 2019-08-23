@@ -1,5 +1,8 @@
 # Decrypt
 
+> 👉 **Note**: it is just an experiment to improve my skills in machine learning and data science. It is not an accurate method for decryption. I 
+just want to find out various regularities in words encrypted with different methods and research them.
+
 ### Motivation
 
 It is hard to decrypt a message with unknown encryption method. Main reason for this fact is following: encryption methods are developed in such a way to make you not to find out original message easily without a knowledge about encryption method used for this concrete text.
