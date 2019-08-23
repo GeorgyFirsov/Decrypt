@@ -21,6 +21,6 @@ def generate_dataset(words_list):
         for line in file:
             # Filter most of abbreviations
             if '-' not in line and '.' not in line:
-                result.add(line.replace('\n', ''))
+                result.add(line.replace('\n', '').lower())
     
     return result
