@@ -25,6 +25,7 @@ def encrypt(words, multiplier, shift):
     :return: dictionary with original words as keys
              and encrypted words as values
     """
+
     if gcd(len(alphabet), multiplier) != 1:
         raise RuntimeError
 

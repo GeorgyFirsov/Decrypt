@@ -37,6 +37,7 @@ def map_to_numbers(start, *args):
 
     :raises: ValueError if no items to map passed
     """
+
     if len(args) < 1:
         raise ValueError
 
