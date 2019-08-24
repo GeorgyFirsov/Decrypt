@@ -13,7 +13,7 @@ def benchmark(entire):
 
         diff = end - start
 
-        print("Time elapsed: {} msec ({} sec)".format(diff.microseconds, diff.seconds))
+        print("Time elapsed: {} sec, {} msec".format(diff.seconds, diff.microseconds))
 
         return result
 
