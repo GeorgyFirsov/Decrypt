@@ -26,4 +26,4 @@ encryption method:
 
 #### Credits
 
-- List of english words from here: https://github.com/dwyl/english-words
+- List of english words was taken from here: https://github.com/dwyl/english-words
