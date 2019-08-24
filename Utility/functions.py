@@ -1,5 +1,6 @@
 # This file contains some helper functions
 from frozendict import frozendict
+import random
 
 import pandas as pd
 
@@ -80,3 +81,17 @@ def create_data_frame(mapping):
         data['Class'] += [number for _ in range(len(dictionary))]
 
     return pd.DataFrame(data)
+
+
+@time.benchmark
+def get_n_random(n, dictionary):
+    """Extracts n random elements from dictionary
+    """
+
+    result = dict()
+
+    for _ in range(10):
+        key, value = random.choice(list(dictionary.items()))
+        result[key] = value
+
+    return result
