@@ -6,6 +6,7 @@ import pandas as pd
 
 from Decorators import time
 from Utility.data import alphabet
+from Encrypt import *
 
 
 def custom_hash(word):
@@ -96,7 +97,7 @@ def create_data_frame_vectorized(mapping):
     :return: Pandas DataFrame
     """
 
-    columns = ['Word', *tuple(list(alphabet)), 'Class']
+    columns = ['Word', *list(alphabet), 'Class']
     data = list()
 
     for dictionary, number in mapping.items():
@@ -109,6 +110,7 @@ def create_data_frame_vectorized(mapping):
 @time.benchmark
 def get_n_random(n, dictionary):
     """Extracts n random elements from dictionary
+    and returns them as dictionary
     """
 
     pre_result = random.sample(dictionary.items(), n)
@@ -141,3 +143,38 @@ def vectorize(dictionary, mapped_alphabet):
     return frozendict(
         {value: vectorize_word(value, mapped_alphabet) for value in dictionary.values()}
     )
+
+
+def swap_keys_and_values(dictionary):
+    """Swaps keys and values in dictionary and
+    returns constructed one.
+    """
+
+    return {value: key for key, value in dictionary.items()}
+
+
+def show_demo(mapping, classifier):
+    """Receives a dictionary with pairs of encrypted
+    and original words, decrypts each encrypted one
+    and prints comparison.
+
+    :param mapping: dictionary with structure: {encrypted: original}
+    :param classifier: predictor
+    """
+
+    classes = classifier.predict(mapping.keys())
+    decrypted = list()
+
+    for cls, encrypted in zip(classes, mapping.keys()):
+        if cls == 1: decrypted.append(caesar.decrypt_word(encrypted, 3))
+        elif cls == 2: decrypted.append(caesar.decrypt_word(encrypted, 4))
+        elif cls == 3: decrypted.append(caesar.decrypt_word(encrypted, 5))
+        elif cls == 4: decrypted.append(affine.decrypt_word(encrypted, 3, 4))
+        elif cls == 5: decrypted.append(affine.decrypt_word(encrypted, 5, 2))
+        elif cls == 6: decrypted.append(affine.decrypt_word(encrypted, 9, 11))
+        else: raise RuntimeError('Broken predictor')
+
+    for decrypted_word, (encrypted, original) in zip(decrypted, mapping.items()):
+        print(
+            "'{}' decrypted to '{}'.\nOriginal: '{}'\n".format(encrypted, decrypted_word, original)
+        )

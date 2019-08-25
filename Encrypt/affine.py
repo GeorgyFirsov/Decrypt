@@ -44,6 +44,23 @@ def encrypt_word(word, encrypted_alphabet):
     return word.translate(table)
 
 
+def decrypt_word(word, multiplier, shift):
+    """Decrypts an encrypted word from affine
+    cipher with specified multiplier and shift.
+
+    :raises: RuntimeError if multiplier and alphabet
+             length are not coprime numbers
+    """
+
+    if gcd(len(alphabet), multiplier) != 1:
+        raise RuntimeError
+
+    encrypted_alphabet = encrypt_alphabet(multiplier, shift)
+    table = str.maketrans(encrypted_alphabet, alphabet)
+
+    return word.translate(table)
+
+
 def encrypt_alphabet(multiplier, shift):
     result = str()
     length = len(alphabet)

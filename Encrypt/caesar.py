@@ -27,7 +27,7 @@ def encrypt(words, shift):
 
 
 def encrypt_word(word, encrypted_alphabet):
-    """Encrypts single word with Caesar cipher.
+    """Encrypts a single word with Caesar cipher.
 
     :param word: word to encrypt
     :param encrypted_alphabet: encrypted alphabet
@@ -36,4 +36,21 @@ def encrypt_word(word, encrypted_alphabet):
     """
 
     table = str.maketrans(alphabet, encrypted_alphabet)
+    return word.translate(table)
+
+
+def decrypt_word(word, shift):
+    """Decrypts a single word, encrypted with Caesar
+    cipher with specific shift.
+
+    :raises: RuntimeError if shift is less than one
+             or more than length of alphabet - 1
+    """
+
+    if not 1 <= shift <= len(alphabet) - 1:
+        raise RuntimeError
+
+    encrypted_alphabet = alphabet[shift:] + alphabet[:shift]
+    table = str.maketrans(encrypted_alphabet, alphabet)
+
     return word.translate(table)

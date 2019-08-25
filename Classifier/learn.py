@@ -67,7 +67,23 @@ class Classifier:
 
 
 @time.benchmark
-def make_classifier(X, y, path):
+def make_classifier(X, y, path=None):
+    """Constructs classifier.
+    If binary file of pickle format
+    with serialized classifier found, just
+    loads it. Otherwise fits X and y to newly
+    created model
+
+    :param X: data to fit
+    :param y: answers to fit
+    :param path: path, where to look for classifier
+
+    :return: constructed classifier
+    """
+
+    if path is None:
+        path = './Predictor.pickle'
+
     classifier = Classifier()
 
     if os.path.exists(path):
