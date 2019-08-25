@@ -153,6 +153,17 @@ def swap_keys_and_values(dictionary):
     return {value: key for key, value in dictionary.items()}
 
 
+def put_card_of_intersection_to(destination, first_dict, second_dict):
+    """Appends a cardinality of intersection of sets of keys from
+    two dictionaries: first_dict and second_dict
+    """
+
+    destination.append(
+        len(calculate_intersection(swap_keys_and_values(first_dict)
+                                   , swap_keys_and_values(second_dict)))
+    )
+
+
 def show_demo(mapping, classifier):
     """Receives a dictionary with pairs of encrypted
     and original words, decrypts each encrypted one
@@ -178,3 +189,6 @@ def show_demo(mapping, classifier):
         print(
             "'{}' decrypted to '{}'.\nOriginal: '{}'\n".format(encrypted, decrypted_word, original)
         )
+
+
+
