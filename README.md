@@ -1,5 +1,8 @@
 # Decrypt
 
+[results]: ./Conclusion.md
+[words]: https://github.com/dwyl/english-words
+
 > 👉 **Note**: it is just an experiment to improve my skills in machine learning and data science. It is not an accurate method for decryption. 
 I just want to find out various regularities in words encrypted with different methods and research them.
 
@@ -36,9 +39,9 @@ values, which are far away from each other on number line. It is a reason why al
 values as a basis.
 
 What about classification based on vectorization of words. Here we represent words as 26-dimensional vectors. For basis we use separate letters 
-(for more information look to full research results). It is possible, because in general encrypted sets don't intersect strongly. So... It is a 
+(for more information look to full research [results][]). It is possible, because in general encrypted sets don't intersect strongly. So... It is a 
 reason why you can successfully build build your own classifier based on vectorized words.
 
 #### Credits
 
-- List of english words was taken from here: https://github.com/dwyl/english-words
+- List of english words was taken from [here][words].
