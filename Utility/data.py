@@ -3,6 +3,9 @@
 # Path to file with list of words
 file_name = './data/words_list.txt'
 
+# Path to file with predictor
+predictor_path = './data/Predictor.pickle'
+
 # Classes to indexes mapping
 classes_map = {
       'caesar_3': 1
@@ -12,3 +15,5 @@ classes_map = {
     , 'affine_5_2': 5
     , 'affine_9_11': 6
 }
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'

@@ -5,6 +5,7 @@ import random
 import pandas as pd
 
 from Decorators import time
+from Utility.data import alphabet
 
 
 def custom_hash(word):
@@ -56,7 +57,7 @@ def calculate_intersection(first, second):
 
 
 @time.benchmark
-def create_data_frame(mapping):
+def create_data_frame_hash(mapping):
     """Combines all dictionaries in mapping to single data frame
 
     :param mapping: variadic amount of dictionaries
@@ -68,10 +69,10 @@ def create_data_frame(mapping):
     """
 
     data = {
-          'Word': []
-        , 'Crc32': []
-        , 'Hash': []
-        , 'Class': []
+          'Word': list()
+        , 'Crc32': list()
+        , 'Hash': list()
+        , 'Class': list()
     }
 
     for dictionary, number in mapping.items():
@@ -84,14 +85,59 @@ def create_data_frame(mapping):
 
 
 @time.benchmark
+def create_data_frame_vectorized(mapping):
+    """Combines all dictionaries in mapping to single data frame
+
+    :param mapping: variadic amount of dictionaries
+                    with encrypted words and their vectors.
+                    Each dictionary is a value in mapping,
+                    each key is corresponding number from classes_map
+
+    :return: Pandas DataFrame
+    """
+
+    columns = ['Word', *tuple(list(alphabet)), 'Class']
+    data = list()
+
+    for dictionary, number in mapping.items():
+        for word, vector in dictionary.items():
+            data.append([word, *vector, number])
+
+    return pd.DataFrame(data, columns=columns)
+
+
+@time.benchmark
 def get_n_random(n, dictionary):
     """Extracts n random elements from dictionary
     """
 
-    result = dict()
+    pre_result = random.sample(dictionary.items(), n)
+    return {item[0]: item[1] for item in pre_result}
 
-    for _ in range(10):
-        key, value = random.choice(list(dictionary.items()))
-        result[key] = value
 
-    return result
+def vectorize_word(word, mapped_alphabet):
+    """Vectorizes a word and turns it into a
+    list-vector with n dimensions (n is a length
+    of alphabet).
+    """
+
+    result = [0 for _ in range(len(mapped_alphabet))]
+    for letter in word:
+        try:
+            result[mapped_alphabet[letter]] += 1
+        except KeyError:
+            pass  # Just skip
+
+    return tuple(result)
+
+
+@time.benchmark
+def vectorize(dictionary, mapped_alphabet):
+    """Vectorizes each word in dictionary and
+    makes another dictionary with encrypted word
+    as a key and its vector representation as a value
+    """
+
+    return frozendict(
+        {value: vectorize_word(value, mapped_alphabet) for value in dictionary.values()}
+    )

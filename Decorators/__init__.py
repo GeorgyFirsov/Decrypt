@@ -1,1 +1,1 @@
-__all__ = ["time.py"]
+__all__ = ["time"]
