@@ -29,8 +29,8 @@ algorithms and it is a reason to investigate them.
 
 So, I've told you about reasons to choose caesar and affine ciphers, let's focus on their properties.
 
-As soon as we have classification task, we need to divide encrypted words into several groups. I chosen 6: caesar_3, caesar_4, caesar_5, 
-affine_3_4, affine_5_2, affine_9_11. Designation `caesar_a` means that to encrypt these words I used caesar cipher with shifted by `a` letters 
+As soon as we have classification task, we need to divide encrypted words into several groups. I chosen 6: `caesar_3`, `caesar_4`, `caesar_5`, 
+`affine_3_4`, `affine_5_2`, `affine_9_11`. Designation `caesar_a` means that to encrypt these words I used caesar cipher with shifted by `a` letters 
 alphabet (formula `y = (x + a) mod m`); `affine_a_b` means that we use formula `y = (a*x + b) mod m` to calculate new index of letter, where `m` 
 is a length of our alphabet. As you can see, if we put `a = 1` in affine formula, we get caesar cipher.
 
@@ -39,8 +39,8 @@ all possible intersections and drawn two graphs:
 
 ![intersections][]
 
-On the first graph we can see, that there are 2 intersections with relatively high cardinality: 5th and 13th (caesar_3 and affine_9_11; affine_3_4 
-and affine_5_2) and 6 "weak". It means, that some methods are distinguished from each other easier than other ones. But all the 
+On the first graph we can see, that there are 2 intersections with relatively high cardinality: 5th and 13th (`caesar_3` and `affine_9_11`; `affine_3_4` 
+and `affine_5_2`) and 6 "weak". It means, that some methods are distinguished from each other easier than other ones. But all the 
 intersections have really small cardiality in comparison to cardinality of set with all words (~2800 against ~420000). It means, that it is 
 possible to classify somehow our algorithms.
 The second graph is another representation of this situation: the more yellow the picture is, the larger cardinality the intersection has. Marked 
@@ -83,7 +83,7 @@ b = (0, 1, 0, ..., 0, 0)
 z = (0, 0, 0, ..., 0, 1)
 ```
 
-Each word we will encode like this: 'abczb' = (1, 2, 1, 0, ..., 0, 1). Actually, it causes some problems: 'mean' = 'name', but it doesn't matter 
+Each word we will encode like this: `'abczb' = (1, 2, 1, 0, ..., 0, 1)`. Actually, it causes some problems: 'mean' = 'name', but it doesn't matter 
 at all, just because our algorithm should *classify* words - not *decode*.
 
 The way I built basis is not quite effective (it has a name: "One Hot Encoding"), but it is simple and understandable and it's easy to encode 
