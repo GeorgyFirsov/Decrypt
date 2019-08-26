@@ -73,7 +73,7 @@ number calculation was bad idea, I need some function `f`, which gives relativel
 ### Vectors
 
 This function is a vector! Let's consider 26-dimensional vector space with this basis:
-
+```
 a = (1, 0, 0, ..., 0, 0)
 
 b = (0, 1, 0, ..., 0, 0)
@@ -81,6 +81,7 @@ b = (0, 1, 0, ..., 0, 0)
           . . .
 
 z = (0, 0, 0, ..., 0, 1)
+```
 
 Each word we will encode like this: 'abczb' = (1, 2, 1, 0, ..., 0, 1). Actually, it causes some problems: 'mean' = 'name', but it doesn't matter 
 at all, just because our algorithm should *classify* words - not *decode*.
