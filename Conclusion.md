@@ -8,8 +8,8 @@
 - [Introduction](#Introduction)
 - [First look](#First-look)
 - [Hypotheses. Proofs and confutations](#Hypotheses-proofs-and-confutations)
- - [Numbers](#Numbers)
- - [Vectors](#Vectors)
+  - [Numbers](#Numbers)
+  - [Vectors](#Vectors)
 - [Conclusion](#Conclusion)
 - [Further research](#Further-research)
 
