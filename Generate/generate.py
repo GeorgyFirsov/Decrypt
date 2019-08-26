@@ -1,5 +1,11 @@
-# This file contains a function, that
-# extracts all valid words from file
+#
+# Generate/generate.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
+
 from Decorators import time
 
 

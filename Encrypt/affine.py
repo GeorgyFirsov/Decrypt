@@ -1,5 +1,11 @@
-# This module provides Affine encryption
-# with different letter shift and index multiplier
+#
+# Encrypt/affine.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
+
 from Decorators import time
 from math import gcd
 from Utility.data import alphabet

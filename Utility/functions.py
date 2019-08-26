@@ -1,4 +1,11 @@
-# This file contains some helper functions
+#
+# Utility/functions.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
+
 from frozendict import frozendict
 import random
 

@@ -1,4 +1,10 @@
-# File with some tests for model
+#
+# Classifier/score.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
 
 
 def stats(correct_value, list_to_check):

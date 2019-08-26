@@ -1,4 +1,10 @@
-# This file contains some useful static data
+#
+# Utility/data.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
 
 # Path to file with list of words
 file_name = './data/words_list.txt'

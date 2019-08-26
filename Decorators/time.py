@@ -1,3 +1,12 @@
+#
+# Decorators/time.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
+
+
 def benchmark(entire):
     """Decorator to measure execution time
 

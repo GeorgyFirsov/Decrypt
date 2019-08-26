@@ -1,5 +1,11 @@
-# This module provides Caesar encryption
-# with different letter shift
+#
+# Encrypt/caesar.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
+
 from Decorators import time
 from Utility.data import alphabet
 

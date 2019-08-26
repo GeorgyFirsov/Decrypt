@@ -1,4 +1,11 @@
-# This module contains functions, that generate a classifier
+#
+# Classifier/learn.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
+
 import os.path
 
 from sklearn.pipeline import Pipeline

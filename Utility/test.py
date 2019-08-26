@@ -1,3 +1,11 @@
+#
+# Utility/test.py
+# Decrypt
+#
+# Written by Firsov Georgy
+# Copyright © 2019 Firsov Georgy. All rights reserved.
+#
+
 from Utility.functions import custom_hash, calculate_intersection
 from Decorators import time
 
