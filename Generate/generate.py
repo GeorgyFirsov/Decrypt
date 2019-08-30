@@ -10,7 +10,7 @@ from Decorators import time
 
 
 @time.benchmark
-def generate_dataset(file_path: str):
+def generate_dataset(file_path: str) -> set:
     """This function reads all the words
     from file and puts them into a set.
     Abbreviations are excluded from this set.

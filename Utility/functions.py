@@ -39,7 +39,7 @@ def map_codes_and_words(words_dict: dict, *args):
     )
 
 
-def map_to_numbers(start, *args):
+def map_to_numbers(start: int, *args) -> dict:
     """Helper function. Receives variadic amount
     of arguments and puts them to dictionary as
     keys. Values of resulting dictionary are
@@ -115,7 +115,7 @@ def create_data_frame_vectorized(mapping: dict):
 
 
 @time.benchmark
-def get_n_random(n, dictionary: dict):
+def get_n_random(n: int, dictionary: dict) -> dict:
     """Extracts n random elements from dictionary
     and returns them as dictionary
     """
@@ -141,7 +141,7 @@ def vectorize_word(word: str, mapped_alphabet: dict) -> tuple:
 
 
 @time.benchmark
-def vectorize(dictionary: dict, mapped_alphabet: dict):
+def vectorize(dictionary: dict, mapped_alphabet: dict) -> frozendict:
     """Vectorizes each word in dictionary and
     makes another dictionary with encrypted word
     as a key and its vector representation as a value
@@ -152,7 +152,7 @@ def vectorize(dictionary: dict, mapped_alphabet: dict):
     )
 
 
-def swap_keys_and_values(dictionary: dict):
+def swap_keys_and_values(dictionary: dict) -> dict:
     """Swaps keys and values in dictionary and
     returns constructed one.
     """
@@ -171,7 +171,7 @@ def put_card_of_intersection_to(destination: list, first_dict: dict, second_dict
     )
 
 
-def show_demo(mapping, classifier):
+def show_demo(mapping: dict, classifier):
     """Receives a dictionary with pairs of encrypted
     and original words, decrypts each encrypted one
     and prints comparison.
