@@ -12,7 +12,7 @@ from Utility.data import alphabet
 
 
 @time.benchmark
-def encrypt(words, multiplier, shift):
+def encrypt(words, multiplier, shift) -> dict:
     """Affine cipher is provided by following formula:
                    y = (ax + b) mod m
     Where x is index of original letter and y is index,
@@ -37,7 +37,7 @@ def encrypt(words, multiplier, shift):
     return {word: encrypt_word(word, encrypted_alphabet) for word in words}
 
 
-def encrypt_word(word, encrypted_alphabet):
+def encrypt_word(word: str, encrypted_alphabet) -> str:
     """Encrypts single word with Affine cipher.
 
     :param word: word to encrypt

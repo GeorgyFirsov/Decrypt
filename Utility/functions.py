@@ -16,7 +16,7 @@ from Utility.data import alphabet
 from Encrypt import *
 
 
-def custom_hash(word):
+def custom_hash(word: str) -> int:
     """Calculates a number based on word.
     This number is unique with high probability
     """
@@ -29,7 +29,7 @@ def custom_hash(word):
 
 
 @time.benchmark
-def map_codes_and_words(words_dict, *args):
+def map_codes_and_words(words_dict: dict, *args):
     """Helper function. It constructs dict with encrypted
     words as keys and their codes as values.
     """
@@ -54,7 +54,7 @@ def map_to_numbers(start, *args):
     return {args[i]: start + i for i in range(len(args))}
 
 
-def calculate_intersection(first, second):
+def calculate_intersection(first: dict, second: dict):
     """Helper function. It returns an intersection of
     values sets of two dicts.
     """
@@ -65,7 +65,7 @@ def calculate_intersection(first, second):
 
 
 @time.benchmark
-def create_data_frame_hash(mapping):
+def create_data_frame_hash(mapping: dict):
     """Combines all dictionaries in mapping to single data frame
 
     :param mapping: variadic amount of dictionaries
@@ -93,7 +93,7 @@ def create_data_frame_hash(mapping):
 
 
 @time.benchmark
-def create_data_frame_vectorized(mapping):
+def create_data_frame_vectorized(mapping: dict):
     """Combines all dictionaries in mapping to single data frame
 
     :param mapping: variadic amount of dictionaries
@@ -115,7 +115,7 @@ def create_data_frame_vectorized(mapping):
 
 
 @time.benchmark
-def get_n_random(n, dictionary):
+def get_n_random(n, dictionary: dict):
     """Extracts n random elements from dictionary
     and returns them as dictionary
     """
@@ -124,7 +124,7 @@ def get_n_random(n, dictionary):
     return {item[0]: item[1] for item in pre_result}
 
 
-def vectorize_word(word, mapped_alphabet):
+def vectorize_word(word: str, mapped_alphabet: dict) -> tuple:
     """Vectorizes a word and turns it into a
     list-vector with n dimensions (n is a length
     of alphabet).
@@ -141,7 +141,7 @@ def vectorize_word(word, mapped_alphabet):
 
 
 @time.benchmark
-def vectorize(dictionary, mapped_alphabet):
+def vectorize(dictionary: dict, mapped_alphabet: dict):
     """Vectorizes each word in dictionary and
     makes another dictionary with encrypted word
     as a key and its vector representation as a value
@@ -152,7 +152,7 @@ def vectorize(dictionary, mapped_alphabet):
     )
 
 
-def swap_keys_and_values(dictionary):
+def swap_keys_and_values(dictionary: dict):
     """Swaps keys and values in dictionary and
     returns constructed one.
     """
@@ -160,7 +160,7 @@ def swap_keys_and_values(dictionary):
     return {value: key for key, value in dictionary.items()}
 
 
-def put_card_of_intersection_to(destination, first_dict, second_dict):
+def put_card_of_intersection_to(destination: list, first_dict: dict, second_dict: dict):
     """Appends a cardinality of intersection of sets of keys from
     two dictionaries: first_dict and second_dict
     """

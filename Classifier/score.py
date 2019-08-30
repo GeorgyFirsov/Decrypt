@@ -7,7 +7,7 @@
 #
 
 
-def stats(correct_value, list_to_check):
+def stats(correct_value, list_to_check: list):
     """Returns count of wrong values in list
     and percentage of right values as a string.
     """

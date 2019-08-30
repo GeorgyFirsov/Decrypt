@@ -74,7 +74,7 @@ class Classifier:
 
 
 @time.benchmark
-def make_classifier(X, y, path=None):
+def make_classifier(X, y, path: str = None):
     """Constructs classifier.
     If binary file of pickle format
     with serialized classifier found, just
