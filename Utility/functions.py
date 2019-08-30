@@ -104,7 +104,7 @@ def create_data_frame_vectorized(mapping: dict):
     :return: Pandas DataFrame
     """
 
-    columns = ['Word', *list(alphabet), 'Class']
+    columns = ['Word', *tuple(alphabet), 'Class']
     data = list()
 
     for dictionary, number in mapping.items():
