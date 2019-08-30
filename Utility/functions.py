@@ -29,7 +29,7 @@ def custom_hash(word: str) -> int:
 
 
 @time.benchmark
-def map_codes_and_words(words_dict: dict, *args):
+def map_codes_and_words(words_dict: dict, *args) -> frozendict:
     """Helper function. It constructs dict with encrypted
     words as keys and their codes as values.
     """
