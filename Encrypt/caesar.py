@@ -11,7 +11,7 @@ from Utility.data import alphabet
 
 
 @time.benchmark
-def encrypt(words: str, shift: int) -> dict:
+def encrypt(words: set, shift: int) -> dict:
     """Function encrypts all words in container 'words'
     with Caesar cipher.
 
